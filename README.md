@@ -41,6 +41,23 @@ claude --plugin-dir ~/dev/skills
 
 Optional: add `CLAUDE.global.md` to `~/.claude/CLAUDE.md`.
 
+oh my pi:
+```bash
+omp plugin marketplace add ulrichheringer/skills
+omp plugin install skills@ulrichheringer
+```
+Invoke as `/skill:tdd`. The bundled extension injects terse rules, switches model per skill tier, and runs `slice-reviewer` on `@smol`.
+
+## Model tiers
+
+Skills declare `metadata.tier`. Build skills also set `model: sonnet` for Claude Code.
+
+| Tier | Skills | Claude Code | oh my pi role |
+|------|--------|-------------|---------------|
+| think | kickoff, spec, self-review, review-pr, retro | session model | `@slow` |
+| build | tdd, debug, ship, pr-loop | `sonnet` for the turn | `@default` |
+| light | slice-reviewer | `haiku` | `@smol` |
+
 ## Credits
 
 - `typescript` adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack), MIT.
