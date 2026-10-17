@@ -9,6 +9,16 @@
           }
         ]
       }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'TERSE MODE ACTIVE. Shortest complete answer, no filler, no recap. Code, commits, PRs, security: write normal.'"
+          }
+        ]
+      }
     ]
   }
 }

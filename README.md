@@ -22,7 +22,7 @@ Specs live in GitHub issues (fallback `.git/specs/`). Progress lives in git: one
 |-------|---------|
 | kickoff, project-context, spec, tdd, debug, review, review-pr, ship, pr-loop, retro | user |
 | lean-code, typescript, go | model |
-| terse | every session, via SessionStart hook |
+| terse | every session (SessionStart) + one-line reminder per prompt |
 | `slice-reviewer` agent (Haiku) | launched by `tdd` |
 
 Plugin commands are namespaced: `/flow:spec`, `/flow:tdd`, ...
