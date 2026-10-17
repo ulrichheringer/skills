@@ -34,7 +34,7 @@ Track progress in context. Don't edit the spec per slice.
 
 ## Finish
 1. Run the spec's Verify `all`. Show the summary lines as proof. Not green means not done.
-2. Launch the `slice-reviewer` subagent with only: the spec reference and base ref `<base>`. No subagents in this harness: run its checklist yourself.
+2. Launch the `slice-reviewer` subagent with only: the spec reference and base ref `<base>`. Run its checklist yourself only if the harness has no subagent tool at all.
 3. Fix valid findings through the cycle. Dismiss the rest with a one-line reason. Never dismiss a finding that cites a `lean-code`, `typescript`, or `go` rule.
 4. Report: slices done, proof lines, reviewer result.
 
