@@ -2,6 +2,8 @@
 name: review-pr
 description: Review someone else's GitHub PR and post findings as one review. Use for /review-pr <number>.
 disable-model-invocation: true
+metadata:
+  tier: think
 argument-hint: "<pr number | url>"
 ---
 
@@ -9,7 +11,7 @@ argument-hint: "<pr number | url>"
 
 1. Load: `gh pr view <n> --json title,body,files,comments,reviews` and `gh pr diff <n>`. Read the linked issue if any.
 2. Skip lockfiles, generated files, snapshots.
-3. Review in the same order as `/self-review`: correctness, spec fit, tests, simplicity, rules.
+3. Review in the same order as the `self-review` skill: correctness, spec fit, tests, simplicity, rules.
 4. Don't repeat points already raised in existing comments.
 5. Show findings: `path:line: [high|med|low] <problem>. <fix>.`
 6. Ask before posting. On yes, write `review.json`:

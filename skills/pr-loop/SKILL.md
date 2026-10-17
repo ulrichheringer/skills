@@ -2,6 +2,9 @@
 name: pr-loop
 description: Resolve review comments and failing CI on your PR - triage, fix, reply, resolve threads. Use for /pr-loop <number>.
 disable-model-invocation: true
+model: sonnet
+metadata:
+  tier: build
 argument-hint: "<pr number>"
 ---
 

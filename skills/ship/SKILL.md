@@ -2,13 +2,16 @@
 name: ship
 description: Verify, commit, push, and open a PR with a before/after block against the base branch. Use for /ship.
 disable-model-invocation: true
+model: sonnet
+metadata:
+  tier: build
 argument-hint: "[#issue]"
 ---
 
 # Ship
 
 ## 1. Verify
-Run test, typecheck, lint (from `CLAUDE.md` or the spec's Verify). Any failure: stop and report.
+Run test, typecheck, lint (from `AGENTS.md` or the spec's Verify). Any failure: stop and report.
 
 ## 2. Commit
 Base: `master` if it exists, else `main`. On the base branch: branch first. Stage only this change's files. Conventional commit, subject ≤ 50 chars, body only for a non-obvious why.

@@ -1,11 +1,11 @@
 ---
 name: project-context
-description: Write or refresh a minimal CLAUDE.md for the current project. Use for /project-context or when kickoff finishes a scaffold.
+description: Write or refresh a minimal AGENTS.md (plus a CLAUDE.md pointer) for the current project. Use for /project-context or when kickoff finishes a scaffold.
 ---
 
 # Project context
 
-Write `CLAUDE.md` at repo root with only what an agent would get wrong or waste tokens discovering. English. Max ~20 lines.
+Write `AGENTS.md` at repo root with only what an agent would get wrong or waste tokens discovering. English. Max ~20 lines.
 
 ## Gather cheaply
 - Manifests and config: `package.json` scripts, `go.mod`, `Makefile`, CI workflows, test and lint config.
@@ -40,4 +40,5 @@ Keep only the Skills lines for languages present.
 ## Rules
 - No generic advice, nothing a linter or formatter enforces.
 - Commands exact and runnable. Verify each one runs.
+- Write `CLAUDE.md` containing only `@AGENTS.md` so Claude Code loads it.
 - Existing file: show the diff before overwriting.

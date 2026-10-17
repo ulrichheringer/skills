@@ -2,6 +2,8 @@
 name: self-review
 description: Deep review of the current branch before shipping. Use for /self-review, ideally in a fresh session.
 disable-model-invocation: true
+metadata:
+  tier: think
 argument-hint: "[#issue]"
 ---
 

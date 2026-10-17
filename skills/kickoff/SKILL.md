@@ -2,6 +2,8 @@
 name: kickoff
 description: Plan a new project from zero before any code - problem, scope, architecture, risks, roadmap - then scaffold it. Use for /kickoff.
 disable-model-invocation: true
+metadata:
+  tier: think
 argument-hint: "<project idea>"
 ---
 
@@ -43,7 +45,7 @@ Show it. Iterate until approved.
 - Invoke the `lean-code` skill and the language skill (`typescript`, `go`) first.
 - Minimal structure, test runner, lint, typecheck, CI running all three.
 - One passing smoke test.
-- Run the `project-context` skill to write `CLAUDE.md`.
+- Run the `project-context` skill to write `AGENTS.md`.
 - `git init -b master`, then commit everything: `chore: scaffold`.
 
-Next: `/spec <first roadmap item>`.
+Next: the `spec` skill on the first roadmap item.

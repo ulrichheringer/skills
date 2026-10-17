@@ -1,7 +1,9 @@
 ---
 name: retro
-description: Turn a recurring agent mistake into a durable fix in tooling, CLAUDE.md, or a skill. Use for /retro.
+description: Turn a recurring agent mistake into a durable fix in tooling, AGENTS.md, or a skill. Use for /retro.
 disable-model-invocation: true
+metadata:
+  tier: think
 argument-hint: "<what went wrong>"
 ---
 
@@ -11,8 +13,8 @@ argument-hint: "<what went wrong>"
 2. Root cause: missing rule, vague rule, rule in the wrong place, or something a tool should enforce.
 3. Pick the highest-leverage fix:
    - Tooling: lint rule, test, script, CI check. Enforced, zero tokens.
-   - Project `CLAUDE.md`: a project-specific fact.
+   - Project `AGENTS.md`: a project-specific fact.
    - Skill: a workflow rule. Skills repo: `dirname "$(readlink ~/.claude/skills/<skill>)"`.
-   - Global `~/.claude/CLAUDE.md`: a rule for every project.
+   - Global agent instructions (`~/.claude/CLAUDE.md`, `~/.omp/agent/AGENTS.md`): a rule for every project.
 4. Write the smallest edit. One line beats a paragraph. Tighten or replace existing text before adding. Keep each `SKILL.md` under ~60 lines.
 5. Show the diff. Apply on approval.

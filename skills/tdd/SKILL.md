@@ -2,6 +2,9 @@
 name: tdd
 description: Implement a spec slice by slice with strict red-green-refactor, one commit per slice. Use for /tdd.
 disable-model-invocation: true
+model: sonnet
+metadata:
+  tier: build
 argument-hint: "#issue | .git/specs/<file> | <task>"
 ---
 
@@ -26,12 +29,13 @@ Track progress in context. Don't edit the spec per slice.
 ## Rules
 - No production code without a failing test. Never weaken, skip, or delete a test to pass.
 - Test behavior, not internals. Don't mock what runs locally.
-- Small output: single-file runs, quiet reporter, failing lines only.- Stuck after 3 attempts on a slice: stop and report what was tried and the suspected cause.
+- Small output: single-file runs, quiet reporter, failing lines only.
+- Stuck after 3 attempts on a slice: stop and report what was tried and the suspected cause.
 
 ## Finish
 1. Run the spec's Verify `all`. Show the summary lines as proof. Not green means not done.
-2. Launch the `slice-reviewer` subagent with only: the spec reference and base ref `<base>`.
+2. Launch the `slice-reviewer` subagent with only: the spec reference and base ref `<base>`. No subagents in this harness: run its checklist yourself.
 3. Fix valid findings through the cycle. Dismiss the rest with a one-line reason. Never dismiss a finding that cites a `lean-code`, `typescript`, or `go` rule.
 4. Report: slices done, proof lines, reviewer result.
 
-Next: `/self-review` in a fresh session, or `/ship`.
+Next: the `self-review` skill in a fresh session, or `ship`.

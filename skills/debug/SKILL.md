@@ -2,6 +2,9 @@
 name: debug
 description: Fix a bug test-first - reproduce, find the root cause, prove the fix. Use for /debug.
 disable-model-invocation: true
+model: sonnet
+metadata:
+  tier: build
 argument-hint: "<symptom> | #issue"
 ---
 
@@ -15,6 +18,6 @@ argument-hint: "<symptom> | #issue"
 6. Run the single test, then the full suite, typecheck, and lint. Show the proof lines.
 7. Commit `fix: <behavior>`.
 
-Cause unclear or the fix spans several modules: stop and suggest `/spec`.
+Cause unclear or the fix spans several modules: stop and suggest the `spec` skill.
 
-Report: root cause, fix, proof. Next: `/ship`.
+Report: root cause, fix, proof. Next: the `ship` skill.
