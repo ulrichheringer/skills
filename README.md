@@ -1,8 +1,8 @@
-# flow
+# skills
 
 Lean, TDD-first development workflow skills for Claude Code. TypeScript first, Go second.
 
-## Flow
+## Workflow
 
 | Size | Path |
 |------|------|
@@ -25,13 +25,13 @@ Specs live in GitHub issues (fallback `.git/specs/`). Progress lives in git: one
 | terse | every session (SessionStart) + one-line reminder per prompt |
 | `slice-reviewer` agent (Haiku) | launched by `tdd` |
 
-Plugin commands are namespaced: `/flow:spec`, `/flow:tdd`, ...
+Invoke by bare name (`/tdd`); `/skills:tdd` also works.
 
 ## Install
 
 ```bash
 claude plugin marketplace add ulrichheringer/skills
-claude plugin install flow@heringer-skills
+claude plugin install skills@ulrichheringer
 ```
 
 Development, edits apply on the next session:
