@@ -22,22 +22,24 @@ Specs live in GitHub issues (fallback `.git/specs/`). Progress lives in git: one
 |-------|---------|
 | kickoff, project-context, spec, tdd, debug, review, review-pr, ship, pr-loop, retro | user |
 | lean-code, typescript, go | model |
+| terse | every session, via SessionStart hook |
 | `slice-reviewer` agent (Haiku) | launched by `tdd` |
+
+Plugin commands are namespaced: `/flow:spec`, `/flow:tdd`, ...
 
 ## Install
 
-Development (edits apply instantly):
-```bash
-./install.sh
-```
-
-Plugin:
 ```bash
 claude plugin marketplace add <path-or-git-url>
 claude plugin install flow@heringer-skills
 ```
 
-Add `CLAUDE.global.md` to `~/.claude/CLAUDE.md`.
+Development, edits apply on the next session:
+```bash
+claude --plugin-dir ~/dev/skills
+```
+
+Optional: add `CLAUDE.global.md` to `~/.claude/CLAUDE.md`.
 
 ## Credits
 

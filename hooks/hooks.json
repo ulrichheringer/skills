@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "awk 'c==2;/^---$/{c++}' \"${CLAUDE_PLUGIN_ROOT}/skills/terse/SKILL.md\""
+          }
+        ]
+      }
+    ]
+  }
+}

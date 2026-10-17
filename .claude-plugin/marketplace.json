@@ -1,6 +1,9 @@
 {
   "name": "heringer-skills",
-  "owner": { "name": "heringer" },
+  "description": "Lean, TDD-first development workflow skills for TypeScript and Go.",
+  "owner": {
+    "name": "heringer"
+  },
   "plugins": [
     {
       "name": "flow",
