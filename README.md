@@ -30,7 +30,7 @@ Plugin commands are namespaced: `/flow:spec`, `/flow:tdd`, ...
 ## Install
 
 ```bash
-claude plugin marketplace add <path-or-git-url>
+claude plugin marketplace add ulrichheringer/skills
 claude plugin install flow@heringer-skills
 ```
 
