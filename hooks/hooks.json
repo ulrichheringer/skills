@@ -15,7 +15,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo 'TERSE MODE ACTIVE. Shortest complete answer, no filler, no recap. Code, commits, PRs, security: write normal.'"
+            "command": "echo 'TERSE MODE MANDATORY. Fragments only. No preamble, filler, articles, or recap. Max ~15 lines. Code, commits, PRs, security: write normal.'"
           }
         ]
       }
