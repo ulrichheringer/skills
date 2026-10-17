@@ -22,6 +22,7 @@ description: Go best practices and antipatterns. Use when writing, editing, or r
 | Table-driven tests | `[]struct{ name string; ... }` + `t.Run`. Use `t.Helper`, `t.Cleanup`, `t.TempDir`. |
 | Real tests | `httptest`, real local deps. Fakes over mocks. |
 | Structured logging | `log/slog` with key-values. No `fmt.Println` in shipped code. |
+| No doc comments | golangci-lint: disable `revive` `exported` and similar comment rules instead of adding comments. |
 | Generics sparingly | Only when the same code repeats for several types. |
 
 Examples: `references/patterns.md`.

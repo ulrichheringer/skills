@@ -40,6 +40,7 @@ One question per message, plain words, with your recommended answer. Stop when e
 Show it. Iterate until approved.
 
 ## 4. Scaffold (after approval)
+- Invoke the `lean-code` skill and the language skill (`typescript`, `go`) first.
 - Minimal structure, test runner, lint, typecheck, CI running all three.
 - One passing smoke test.
 - Run the `project-context` skill to write `CLAUDE.md`.

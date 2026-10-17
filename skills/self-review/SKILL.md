@@ -7,9 +7,10 @@ argument-hint: "[#issue]"
 
 # Review
 
-Base: `master` if it exists, else `main`.
-Scope: `git diff <base>...HEAD` plus uncommitted changes. Spec: the issue if given.
-Read surrounding code only where a hunk's correctness depends on it.
+Base: `git branch --list master main`, prefer `master`.
+Scope: `git diff <base>...HEAD` plus uncommitted changes.
+Spec: the issue if given, else the newest file in `.git/specs/`.
+Run the project's test, typecheck, and lint once. Read surrounding code only where a hunk's correctness depends on it.
 
 Check in order:
 1. Correctness: logic, edge cases (empty, null, huge, concurrent, unicode), error paths, security (injection, authz, secrets).

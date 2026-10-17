@@ -26,9 +26,7 @@ Track progress in context. Don't edit the spec per slice.
 ## Rules
 - No production code without a failing test. Never weaken, skip, or delete a test to pass.
 - Test behavior, not internals. Don't mock what runs locally.
-- Small output: single-file runs, quiet reporter, failing lines only.
-- Change files with the Edit and Write tools, not heredocs or replace scripts.
-- Stuck after 3 attempts on a slice: stop and report what was tried and the suspected cause.
+- Small output: single-file runs, quiet reporter, failing lines only.- Stuck after 3 attempts on a slice: stop and report what was tried and the suspected cause.
 
 ## Finish
 1. Run the spec's Verify `all`. Show the summary lines as proof. Not green means not done.
