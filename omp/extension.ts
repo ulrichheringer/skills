@@ -17,7 +17,16 @@ const tierOf = (skill: string) => {
   }
 };
 
+const pinReviewerModel = async (pi: any) => {
+  const { lookup } = await import("@oh-my-pi/pi-coding-agent/config/registry");
+  const overrides = lookup("task.agentModelOverrides");
+  const current = overrides?.get(pi.pi.settings) ?? {};
+  if (!current["slice-reviewer"]) overrides?.override(pi.pi.settings, { ...current, "slice-reviewer": roles.light });
+};
+
 export default function skills(pi: any) {
+  pinReviewerModel(pi).catch(() => undefined);
+
   pi.on("input", async (event: { text: string }, ctx: any) => {
     const skill = event.text.match(/^\/skill:(?:[\w-]+\/)?([\w-]+)/)?.[1];
     const role = skill && roles[tierOf(skill) ?? ""];
@@ -28,6 +37,13 @@ export default function skills(pi: any) {
   pi.on("before_agent_start", (event: { systemPrompt: string[] }) => ({
     systemPrompt: [...event.systemPrompt, terse],
   }));
+
+  pi.on("tool_call", (event: { toolName: string; input: any }) => {
+    const { agent, tasks, ...rest } = event.input ?? {};
+    if (event.toolName !== "task" || typeof agent !== "string" || !Array.isArray(tasks)) return undefined;
+    const pick = (own?: string) => (own && own !== "task" ? own : agent);
+    return { input: { ...rest, tasks: tasks.map((task: { agent?: string }) => ({ ...task, agent: pick(task.agent) })) } };
+  });
 
   pi.on("before_subagent_spawn", (event: { agent: string }) =>
     event.agent.endsWith("slice-reviewer") ? { model: [roles.light] } : undefined,
