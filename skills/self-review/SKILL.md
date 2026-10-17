@@ -1,6 +1,6 @@
 ---
-name: review
-description: Deep review of the current branch before shipping. Use for /review, ideally in a fresh session.
+name: self-review
+description: Deep review of the current branch before shipping. Use for /self-review, ideally in a fresh session.
 disable-model-invocation: true
 argument-hint: "[#issue]"
 ---

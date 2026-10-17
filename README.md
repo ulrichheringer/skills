@@ -9,7 +9,7 @@ Lean, TDD-first development workflow skills for Claude Code. TypeScript first, G
 | New project | `/kickoff` → `/spec` per roadmap item |
 | Trivial | ask directly → `/ship` |
 | Bug, clear cause | `/debug` → `/ship` → `/pr-loop` |
-| Feature or unclear bug | `/spec` → `/clear` → `/tdd #n` → `/review` (fresh session) → `/ship` → `/pr-loop` |
+| Feature or unclear bug | `/spec` → `/clear` → `/tdd #n` → `/self-review` (fresh session) → `/ship` → `/pr-loop` |
 | Someone else's PR | `/review-pr <n>` |
 | Agent keeps repeating a mistake | `/retro` |
 | Existing project, no context | `/project-context` |
@@ -20,7 +20,7 @@ Specs live in GitHub issues (fallback `.git/specs/`). Progress lives in git: one
 
 | Skill | Trigger |
 |-------|---------|
-| kickoff, project-context, spec, tdd, debug, review, review-pr, ship, pr-loop, retro | user |
+| kickoff, project-context, spec, tdd, debug, self-review, review-pr, ship, pr-loop, retro | user |
 | lean-code, typescript, go | model |
 | terse | every session (SessionStart) + one-line reminder per prompt |
 | `slice-reviewer` agent (Haiku) | launched by `tdd` |

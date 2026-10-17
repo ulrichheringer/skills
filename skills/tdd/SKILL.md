@@ -33,4 +33,4 @@ Track progress in context. Don't edit the spec per slice.
 3. Fix valid findings through the cycle. Dismiss the rest with a one-line reason.
 4. Report: slices done, proof lines, reviewer result.
 
-Next: `/review` in a fresh session, or `/ship`.
+Next: `/self-review` in a fresh session, or `/ship`.
