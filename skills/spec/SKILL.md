@@ -44,6 +44,7 @@ Ask only what the code can't answer. One question per message, max 5, each with 
 - [ ] <observable behavior> — test: <what proves it>
 ```
 - Slices: vertical, smallest testable behavior, in build order. Prefactor first if it makes the change easy.
+- Every slice has an automated test. No manual-only slices.
 - Paths are fine; the spec is short-lived.
 - Max ~50 lines. No user stories, no code.
 

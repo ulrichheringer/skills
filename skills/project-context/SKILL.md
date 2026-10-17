@@ -1,7 +1,6 @@
 ---
 name: project-context
-description: Write or refresh a minimal CLAUDE.md for the current project. Use for /project-context.
-disable-model-invocation: true
+description: Write or refresh a minimal CLAUDE.md for the current project. Use for /project-context or when kickoff finishes a scaffold.
 ---
 
 # Project context

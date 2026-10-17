@@ -42,6 +42,7 @@ Show it. Iterate until approved.
 ## 4. Scaffold (after approval)
 - Minimal structure, test runner, lint, typecheck, CI running all three.
 - One passing smoke test.
-- Run `/project-context` to write `CLAUDE.md`.
+- Run the `project-context` skill to write `CLAUDE.md`.
+- `git init -b main`, then commit everything: `chore: scaffold`.
 
 Next: `/spec <first roadmap item>`.

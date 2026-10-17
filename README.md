@@ -20,8 +20,8 @@ Specs live in GitHub issues (fallback `.git/specs/`). Progress lives in git: one
 
 | Skill | Trigger |
 |-------|---------|
-| kickoff, project-context, spec, tdd, debug, self-review, review-pr, ship, pr-loop, retro | user |
-| lean-code, typescript, go | model |
+| kickoff, spec, tdd, debug, self-review, review-pr, ship, pr-loop, retro | user |
+| project-context, lean-code, typescript, go | user or model |
 | terse | every session (SessionStart) + one-line reminder per prompt |
 | `slice-reviewer` agent (Haiku) | launched by `tdd` |
 
