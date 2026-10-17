@@ -1,6 +1,6 @@
 ---
 name: ship
-description: Verify, commit, push, and open a PR with a before/after block against main. Use for /ship.
+description: Verify, commit, push, and open a PR with a before/after block against the base branch. Use for /ship.
 disable-model-invocation: true
 argument-hint: "[#issue]"
 ---
@@ -11,10 +11,10 @@ argument-hint: "[#issue]"
 Run test, typecheck, lint (from `CLAUDE.md` or the spec's Verify). Any failure: stop and report.
 
 ## 2. Commit
-On main: branch first. Stage only this change's files. Conventional commit, subject ≤ 50 chars, body only for a non-obvious why.
+Base: `master` if it exists, else `main`. On the base branch: branch first. Stage only this change's files. Conventional commit, subject ≤ 50 chars, body only for a non-obvious why.
 
 ## 3. Before/after
-Compare `main` and `HEAD` for the behavior that changed. Run the base in `git worktree add /tmp/base-<slug> main`; remove it after.
+Compare `<base>` and `HEAD` for the behavior that changed. Run the base in `git worktree add /tmp/base-<slug> <base>`; remove it after.
 - UI changed: capture the same page, state, and viewport on both with agent-browser (`agent-browser skills get core --full`) into `captures/<name>-before.png` and `-after.png`. New screen: after only. Add `captures/` to `.git/info/exclude`.
 - No UI: real output from both versions as text: command output, API response, signature, error message. Never invented.
 

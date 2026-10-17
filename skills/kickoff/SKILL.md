@@ -43,6 +43,6 @@ Show it. Iterate until approved.
 - Minimal structure, test runner, lint, typecheck, CI running all three.
 - One passing smoke test.
 - Run the `project-context` skill to write `CLAUDE.md`.
-- `git init -b main`, then commit everything: `chore: scaffold`.
+- `git init -b master`, then commit everything: `chore: scaffold`.
 
 Next: `/spec <first roadmap item>`.

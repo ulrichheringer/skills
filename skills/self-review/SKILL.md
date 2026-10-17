@@ -7,7 +7,8 @@ argument-hint: "[#issue]"
 
 # Review
 
-Scope: `git diff main...HEAD` plus uncommitted changes. Spec: the issue if given.
+Base: `master` if it exists, else `main`.
+Scope: `git diff <base>...HEAD` plus uncommitted changes. Spec: the issue if given.
 Read surrounding code only where a hunk's correctness depends on it.
 
 Check in order:
