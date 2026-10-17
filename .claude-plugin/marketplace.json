@@ -1,0 +1,11 @@
+{
+  "name": "heringer-skills",
+  "owner": { "name": "heringer" },
+  "plugins": [
+    {
+      "name": "flow",
+      "source": "./",
+      "description": "Lean, TDD-first development workflow for TypeScript and Go."
+    }
+  ]
+}
