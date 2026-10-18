@@ -38,6 +38,9 @@ Ask only what the code can't answer. One question per message, max 5, each with 
 ## Out of scope
 - <item>
 
+## Design
+- <screen spec or mockup reference> → reuse `<component path>`, tokens from `<tokens file>`
+
 ## Verify
 - single: `<cmd> <file>`
 - all: `<test && typecheck && lint>`
@@ -48,6 +51,7 @@ Ask only what the code can't answer. One question per message, max 5, each with 
 - Slices: vertical, smallest testable behavior, in build order. Prefactor first if it makes the change easy.
 - Every slice has an automated test. No manual-only slices.
 - Paths are fine; the spec is short-lived.
+- `## Design` only for UI work in a project with a design system or mockups; omit otherwise.
 - Max ~50 lines. No user stories, no code.
 
 ## 4. Store

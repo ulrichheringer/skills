@@ -29,13 +29,14 @@ Write `AGENTS.md` at repo root with only what an agent would get wrong or waste 
 
 ## Conventions
 - <only non-obvious rules: error style, where validation lives, naming>
+- UI: only tokens from `<tokens file>` and components from `<components dir>`; no ad-hoc colors, spacing, or fonts. Reference: `<design docs>`.
 
 ## Skills
 - Editing .ts/.tsx: use `typescript` if available.
 - Editing .go: use `go` if available.
 - Writing code: use `lean-code` if available.
 ```
-Keep only the Skills lines for languages present.
+Keep only the Skills lines for languages present, and the UI line only when the project has a design system.
 
 ## Rules
 - No generic advice, nothing a linter or formatter enforces.

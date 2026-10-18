@@ -11,6 +11,9 @@ argument-hint: "<project idea>"
 
 Deep planning for a new project. The one place worth spending tokens: mistakes here multiply.
 
+## 0. References
+Read every file, folder, or URL the user passes (designs, specs, prototypes, notes) before asking anything. Never ask what they already answer; list what you took from them.
+
 ## 1. Interview
 One question per message, plain words, with your recommended answer. Stop when every section of `PROJECT.md` can be written.
 - Problem: who has it, how it's solved today, what success looks like.
