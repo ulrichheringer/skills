@@ -18,7 +18,7 @@ Base: `master` if it exists, else `main`. On the base branch: branch first. Stag
 
 ## 3. Before/after
 Compare `<base>` and `HEAD` for the behavior that changed. Run the base in `git worktree add /tmp/base-<slug> <base>`; remove it after.
-- UI changed: capture the same page, state, and viewport on both with agent-browser (`agent-browser skills get core --full`) into `captures/<name>-before.png` and `-after.png`. New screen: after only. Add `captures/` to `.git/info/exclude`.
+- UI changed: capture the same page, state, and viewport on both into `captures/<name>-before.png` and `-after.png`. New screen: after only. Add `captures/` to `.git/info/exclude`. Use the first available: `agent-browser` (`agent-browser skills get core --full`), the harness's browser tool (omp `browser`, a browser MCP), then Playwright via `npx playwright screenshot`. None works: text evidence only, and say so in one line.
 - No UI: real output from both versions as text: command output, API response, signature, error message. Never invented.
 
 ## 4. PR
