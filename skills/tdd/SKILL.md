@@ -14,7 +14,7 @@ argument-hint: "#issue | .git/specs/<file> | <task>"
 - Spec: `gh issue view <n> --json title,body -q '.title + "\n\n" + .body'`, a `.git/specs/` file, or the task text.
 - Base: `master` if it exists, else `main`. Neither exists or no commits: stop and ask the user to commit the base first.
 - Resume: `git log --oneline <base>..HEAD` and `git status --short`. A slice with a commit is done; uncommitted changes belong to the next open slice.
-- On the base branch: create `<feat|fix>/<slug>` first.
+- Branch: already on this spec's branch → resume. Otherwise start fresh from base: dirty tree → stop and ask; clean → `git switch <base> && git pull --ff-only && git switch -c <feat|fix>/<slug>` (skip the pull without a remote). Never stack on another feature branch unless the spec says so.
 - Invoke the `lean-code` skill and the language skill (`typescript`, `go`) before writing code.
 - Read only files named in Current state and those the next test touches.
 

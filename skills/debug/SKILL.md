@@ -10,6 +10,7 @@ argument-hint: "<symptom> | #issue"
 
 # Debug
 
+0. Branch: bug in the current feature branch's own work → fix there. Otherwise, clean tree → `git switch <base> && git pull --ff-only && git switch -c fix/<slug>` (`master` if it exists, else `main`); dirty → ask first.
 1. Reproduce: exact input, observed vs expected. No repro yet: gather evidence (stack trace, logs, failing request) before touching code.
 2. Locate: walk back from the symptom along the stack trace or data flow. Grep before reading; read narrow ranges. Summarize logs, never paste them whole.
 3. Root cause: the first place the system goes wrong, in one sentence with evidence. Two failed fixes on one premise: re-test the premise.

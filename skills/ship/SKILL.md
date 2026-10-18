@@ -52,6 +52,9 @@ Confirm no `captures/` path remains in the PR body. Re-runs replace only the mar
 If linked, tick every slice once:
 `gh issue view <n> --json body -q .body | sed 's/- \[ \]/- [x]/' > /tmp/issue.md && gh issue edit <n> --body-file /tmp/issue.md`
 
+## 6. Back to base
+`git switch <base> && git pull --ff-only` (skip the pull without a remote), so the next spec starts from base.
+
 Report the PR URL. Never merge.
 
 Formatter adapted from vercel-labs/before-and-after, see `LICENSE.before-and-after`.

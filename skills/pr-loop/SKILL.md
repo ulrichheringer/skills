@@ -11,6 +11,7 @@ argument-hint: "<pr number>"
 # PR loop
 
 Comments already exist when this runs. Never merge. Max 3 rounds.
+Start with `gh pr checkout <n>`; when done, `git switch <base>` (`master` if it exists, else `main`).
 
 ## 1. Collect
 Unresolved threads:

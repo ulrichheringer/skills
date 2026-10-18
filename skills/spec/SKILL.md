@@ -15,6 +15,7 @@ argument-hint: "<task> | #issue"
 - `#issue` given: read it with `gh issue view <n>` and refine it instead of starting over.
 
 ## 1. Understand
+Read code from fresh base: clean tree → `git switch <base> && git pull --ff-only` (`master` if it exists, else `main`; skip the pull without a remote); dirty → ask first.
 Explore only the affected area. When it spans many files, delegate to a read-only exploration subagent if the harness has one, and keep only its summary: files, entry points, test seams.
 - How it works today, files involved, the closest existing test to copy.
 - Fix: reproduce it, then state the root cause or best hypothesis with evidence.
