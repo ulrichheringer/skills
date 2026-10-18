@@ -48,6 +48,10 @@ omp plugin install skills@ulrichheringer
 ```
 Invoke as `/tdd` (same as Claude Code) or `/skill:tdd`; `debug` needs `/skill:debug` because omp has a built-in `/debug`. The bundled extension injects terse rules, switches model per skill tier, and runs `slice-reviewer` on `@smol`.
 
+## Guards
+
+Both harnesses block file edits through bash (python `open().write`, `cat`/`tee` heredocs, `sed -i`, `perl -i`) so changes go through the edit/write tools. Writes under `/tmp` are allowed. Detector: `hooks/no-bash-edits.mjs`.
+
 ## Model tiers
 
 Skills declare `metadata.tier`. Build skills also set `model: sonnet` for Claude Code.
