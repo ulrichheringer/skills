@@ -1,6 +1,7 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { blockReason, isBashEdit } from "../hooks/no-bash-edits.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const roles: Record<string, string> = { think: "@slow", build: "@default", light: "@smol" };
@@ -42,6 +43,10 @@ export default function skills(pi: any) {
   pi.on("before_agent_start", (event: { systemPrompt: string[] }) => ({
     systemPrompt: [...event.systemPrompt, terse],
   }));
+
+  pi.on("tool_call", (event: { toolName: string; input: any }) =>
+    event.toolName === "bash" && isBashEdit(event.input?.command) ? { block: true, reason: blockReason } : undefined,
+  );
 
   pi.on("tool_call", (event: { toolName: string; input: any }) => {
     const { agent, tasks, ...rest } = event.input ?? {};
