@@ -46,7 +46,7 @@ oh my pi:
 omp plugin marketplace add ulrichheringer/skills
 omp plugin install skills@ulrichheringer
 ```
-Invoke as `/skill:tdd`. The bundled extension injects terse rules, switches model per skill tier, and runs `slice-reviewer` on `@smol`.
+Invoke as `/tdd` (same as Claude Code) or `/skill:tdd`; `debug` needs `/skill:debug` because omp has a built-in `/debug`. The bundled extension injects terse rules, switches model per skill tier, and runs `slice-reviewer` on `@smol`.
 
 ## Model tiers
 

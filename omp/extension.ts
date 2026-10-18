@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -8,6 +8,8 @@ const roles: Record<string, string> = { think: "@slow", build: "@default", light
 const read = (path: string) => readFileSync(join(root, path), "utf8");
 const body = (markdown: string) => markdown.replace(/^---\n[\s\S]*?\n---\n/, "");
 const terse = body(read("skills/terse/SKILL.md"));
+const ownSkills = new Set(readdirSync(join(root, "skills")));
+const builtinCommands = new Set(["debug"]);
 
 const tierOf = (skill: string) => {
   try {
@@ -28,10 +30,13 @@ export default function skills(pi: any) {
   pinReviewerModel(pi).catch(() => undefined);
 
   pi.on("input", async (event: { text: string }, ctx: any) => {
-    const skill = event.text.match(/^\/skill:(?:[\w-]+\/)?([\w-]+)/)?.[1];
-    const role = skill && roles[tierOf(skill) ?? ""];
+    const [, prefix, skill, rest] = event.text.match(/^\/(skill:)?(?:[\w-]+\/)?([\w-]+)([\s\S]*)$/) ?? [];
+    const bare = !prefix && ownSkills.has(skill) && !builtinCommands.has(skill);
+    if (!skill || (!prefix && !bare)) return undefined;
+    const role = roles[tierOf(skill) ?? ""];
     const model = role && ctx.models.resolve(role);
     if (model) await pi.setModel(model);
+    return bare ? { text: `/skill:${skill}${rest}` } : undefined;
   });
 
   pi.on("before_agent_start", (event: { systemPrompt: string[] }) => ({
