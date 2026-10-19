@@ -13,6 +13,7 @@ argument-hint: "[first item to start from]"
 You orchestrate; phase agents do the work. Keep your own context small: pass pointers (item text, spec path or issue, PR number), never file contents.
 
 Sibling skills: `<this skill's directory>/../<name>/SKILL.md`.
+Phases are strictly sequential: wait for each agent's result before launching the next.
 
 ## Preconditions
 Clean tree on the base branch (`master` if it exists, else `main`), `PROJECT.md` with a `## Roadmap`, verify commands in `AGENTS.md`. Missing: stop and say what.
