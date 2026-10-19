@@ -20,12 +20,13 @@ Clean tree on the base branch (`master` if it exists, else `main`), `PROJECT.md`
 ## Loop, until no `- [ ]` item is left
 1. Item: the first open roadmap item.
 2. Spec: launch `autopilot-planner` with: "Follow `<spec skill path>` for: <item>. Autopilot mode: no questions; decide from PROJECT.md, AGENTS.md and the code. Return the spec path or issue, or `BLOCKED: <decision needed>` if an unsettled decision changes how it gets built."
-3. Build: launch `autopilot-builder` with: "Follow `<tdd skill path>` for <spec>. Autopilot mode: no questions. Return `DONE <branch>` with proof lines, or `BLOCKED: <reason>`."
+3. Build: launch `autopilot-builder` with: "Follow `<tdd skill path>` for <spec>. Autopilot mode: no questions; skip the slice-reviewer step, autopilot runs it. Return `DONE <branch>` with proof lines, or `BLOCKED: <reason>`."
+   Review: launch `slice-reviewer` with the spec and base ref. Findings: launch `autopilot-builder` once to fix them through the tdd cycle on that branch.
 4. Ship: launch `autopilot-builder` with: "Follow `<ship skill path>` for <spec>. Also tick `<item>` in PROJECT.md in this PR. Return the PR number."
 5. Checks: `gh pr checks <n> --watch`. Red: launch `autopilot-builder` to fix on the PR branch with the failing log tail; at most 2 attempts.
 6. Merge: `gh pr merge <n> --merge --delete-branch`, then `git switch <base> && git pull --ff-only`.
 
-No GitHub remote: skip 4–5, tick the item on the branch, `git switch <base> && git merge --no-ff <branch>`.
+No GitHub remote: skip 4–5, tick the item on the branch, `git switch <base> && git merge --no-ff <branch> && git branch -d <branch>`.
 
 ## Stop
 Stop the whole run on: `BLOCKED` from any phase, red checks after 2 fixes, merge conflict, dirty tree between items. Never skip an item. Never force-push.
