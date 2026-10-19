@@ -42,13 +42,14 @@ One question per message, plain words, with your recommended answer. Stop when e
 ## Roadmap
 - [ ] <vertical slice of value, in build order>
 ```
-Show it. Iterate until approved.
+Each roadmap item fits one spec (about 3–8 slices); split anything bigger.
+Show it. Iterate until approved. On approval, commit it right away: `git init -b master` if there is no repo, then commit only `PROJECT.md` as `docs: project plan`.
 
 ## 4. Scaffold (after approval)
 - Invoke the `lean-code` skill and the language skill (`typescript`, `go`) first.
 - Minimal structure, test runner, lint, typecheck, CI running all three.
 - One passing smoke test.
 - Run the `project-context` skill to write `AGENTS.md`.
-- `git init -b master`, then commit everything: `chore: scaffold`.
+- Commit everything: `chore: scaffold`.
 
 Next: the `spec` skill on the first roadmap item.

@@ -15,6 +15,7 @@ Run test, typecheck, lint (from `AGENTS.md` or the spec's Verify). Any failure: 
 
 ## 2. Commit
 Base: `master` if it exists, else `main`. On the base branch: branch first. Stage only this change's files. Conventional commit, subject ≤ 50 chars, body only for a non-obvious why.
+Roadmap: if this change completes an item in `PROJECT.md`, tick it (`- [x]`) in its own commit `docs: tick <item>` on this branch, so the merge marks it done.
 
 ## 3. Before/after
 Compare `<base>` and `HEAD` for the behavior that changed. Run the base in `git worktree add /tmp/base-<slug> <base>`; remove it after.
