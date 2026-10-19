@@ -20,15 +20,24 @@ const tierOf = (skill: string) => {
   }
 };
 
-const pinReviewerModel = async (pi: any) => {
+const agentRoles: Record<string, string> = {
+  "slice-reviewer": roles.light,
+  "autopilot-planner": roles.think,
+  "autopilot-builder": roles.build,
+};
+
+const pinAgentModels = async (pi: any) => {
   const { lookup } = await import("@oh-my-pi/pi-coding-agent/config/registry");
   const overrides = lookup("task.agentModelOverrides");
   const current = overrides?.get(pi.pi.settings) ?? {};
-  if (!current["slice-reviewer"]) overrides?.override(pi.pi.settings, { ...current, "slice-reviewer": roles.light });
+  overrides?.override(pi.pi.settings, { ...agentRoles, ...current });
 };
 
+const roleOfAgent = (agent: string) =>
+  Object.entries(agentRoles).find(([name]) => agent.endsWith(name))?.[1];
+
 export default function skills(pi: any) {
-  pinReviewerModel(pi).catch(() => undefined);
+  pinAgentModels(pi).catch(() => undefined);
 
   pi.on("input", async (event: { text: string }, ctx: any) => {
     const [, prefix, skill, rest] = event.text.match(/^\/(skill:)?(?:[\w-]+\/)?([\w-]+)([\s\S]*)$/) ?? [];
@@ -55,7 +64,8 @@ export default function skills(pi: any) {
     return { input: { ...rest, tasks: tasks.map((task: { agent?: string }) => ({ ...task, agent: pick(task.agent) })) } };
   });
 
-  pi.on("before_subagent_spawn", (event: { agent: string }) =>
-    event.agent.endsWith("slice-reviewer") ? { model: [roles.light] } : undefined,
-  );
+  pi.on("before_subagent_spawn", (event: { agent: string }) => {
+    const role = roleOfAgent(event.agent);
+    return role ? { model: [role] } : undefined;
+  });
 }

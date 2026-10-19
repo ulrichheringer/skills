@@ -6,7 +6,8 @@ Lean, TDD-first development workflow skills for Claude Code. TypeScript first, G
 
 | Size | Path |
 |------|------|
-| New project | `/kickoff` → `/spec` per roadmap item |
+| New project | `/kickoff` → `/spec` per roadmap item, or `/autopilot` |
+| Roadmap already decided | `/autopilot`: spec → tdd → ship → merge for every open item; stops on blockers |
 | Trivial | ask directly → `/ship` |
 | Bug, clear cause | `/debug` → `/ship` → `/pr-loop` |
 | Feature or unclear bug | `/spec` → `/clear` → `/tdd #n` → `/self-review` (fresh session) → `/ship` → `/pr-loop` |
@@ -20,10 +21,11 @@ Specs live in GitHub issues (fallback `.git/specs/`). Progress lives in git: one
 
 | Skill | Trigger |
 |-------|---------|
-| kickoff, spec, tdd, debug, self-review, review-pr, ship, pr-loop, retro | user |
+| kickoff, spec, tdd, debug, self-review, review-pr, ship, pr-loop, retro, autopilot | user |
 | project-context, lean-code, typescript, go | user or model |
 | terse | every session (SessionStart) + one-line reminder per prompt |
 | `slice-reviewer` agent (Haiku) | launched by `tdd` |
+| `autopilot-planner` (Opus), `autopilot-builder` (Sonnet) agents | launched by `autopilot` |
 
 Invoke by bare name (`/tdd`); `/skills:tdd` also works.
 
