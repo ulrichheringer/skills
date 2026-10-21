@@ -8,7 +8,8 @@ description: Drive an Android emulator or device with adb - install, launch, scr
 Use a harness emulator tool if one exists; otherwise adb. Keep output small: filter logs, never dump them whole.
 
 ## Device
-- List: `adb devices -l`. None: `emulator -list-avds`, then `emulator -avd <name> -no-snapshot-load >/dev/null 2>&1 &`.
+- Tools not on PATH: `export PATH="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-$HOME/Library/Android/sdk}}/platform-tools:${ANDROID_HOME:-${ANDROID_SDK_ROOT:-$HOME/Library/Android/sdk}}/emulator:$PATH"` (Linux SDK: `$HOME/Android/Sdk`).
+- List: `adb devices -l`. None: `emulator -list-avds`, then `emulator -avd <name> -no-snapshot-load >/dev/null 2>&1 &` (add `-no-window` when nobody watches). Stop it when done: `adb emu kill`.
 - Wait for boot: `adb wait-for-device shell 'while [ "$(getprop sys.boot_completed)" != 1 ]; do sleep 1; done'`.
 - Several devices: add `-s <serial>` to every command.
 
