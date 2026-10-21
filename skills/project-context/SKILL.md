@@ -26,6 +26,7 @@ Write `AGENTS.md` at repo root with only what an agent would get wrong or waste 
 
 ## Layout
 - `<dir>` <role>
+- New code: `<domain slice path pattern>` per PROJECT.md `## Structure`
 
 ## Conventions
 - <only non-obvious rules: error style, where validation lives, naming>

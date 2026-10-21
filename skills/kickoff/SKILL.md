@@ -2,6 +2,7 @@
 name: kickoff
 description: Plan a new project from zero before any code - problem, scope, architecture, risks, roadmap - then scaffold it. Use for /kickoff.
 disable-model-invocation: true
+model: opus
 metadata:
   tier: think
 argument-hint: "<project idea>"
@@ -23,6 +24,7 @@ One question per message, plain words, with your recommended answer. Stop when e
 
 ## 2. Decide
 - Data model, boundaries (HTTP, DB, external APIs), deploy target. One line each, with why.
+- Code structure: default to vertical slices by domain (one folder per domain holding its handlers, logic, data access, UI, and tests; shared kernel only for truly cross-cutting code). Name the domains and the folder layout per app.
 - Boring, proven tools. No dependency without a concrete need.
 - An unknown that could flip a decision: build a throwaway prototype in a temp dir and decide from the result.
 
@@ -37,6 +39,10 @@ One question per message, plain words, with your recommended answer. Stop when e
 ## Out of scope
 ## Architecture
 - <decision> — <why>
+## Structure
+- <app>: `<path>/<domain>/` holds <handler, logic, store, tests | routes, api, components, tests>
+- Domains: <list>
+- Shared: `<path>` only for <cross-cutting concerns>
 ## Risks
 - <risk> — <mitigation>
 ## Roadmap

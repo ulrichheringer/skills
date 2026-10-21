@@ -15,5 +15,6 @@ description: Write the simplest, shortest working code with zero comments. Use w
 - Clear names over short ones. Obvious code over clever code.
 - Validate at boundaries; no defensive checks for states the types rule out.
 - Smallest diff that solves it. Don't reformat or refactor unrelated code.
+- Lean is about less code, not fewer folders: follow the project's domain structure; putting code in its slice is not speculative abstraction.
 
 Before finishing, reread the diff and delete every line that isn't needed.

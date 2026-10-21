@@ -56,11 +56,11 @@ Both harnesses block file edits through bash (python `open().write`, `cat`/`tee`
 
 ## Model tiers
 
-Skills declare `metadata.tier`. Build skills also set `model: sonnet` for Claude Code.
+Skills declare `metadata.tier` and a Claude Code `model`. Claude Code applies a skill's model only to the turn that invokes it; your replies go back to the session model, so keep the session on Opus (`/model opus`) for multi-turn interviews in `kickoff` and `spec`.
 
 | Tier | Skills | Claude Code | oh my pi role |
 |------|--------|-------------|---------------|
-| think | kickoff, spec, self-review, review-pr, retro | session model | `@slow` |
+| think | kickoff, spec, self-review, review-pr, retro | `opus` for the turn | `@slow` |
 | build | tdd, debug, ship, pr-loop | `sonnet` for the turn | `@default` |
 | light | slice-reviewer | `haiku` | `@smol` |
 

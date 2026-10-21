@@ -2,6 +2,7 @@
 name: spec
 description: Turn a feature, change, or non-trivial bug into a short spec stored as a GitHub issue, with slices the tdd skill executes. Use for /spec.
 disable-model-invocation: true
+model: opus
 metadata:
   tier: think
 argument-hint: "<task> | #issue"
@@ -33,6 +34,9 @@ Ask only what the code can't answer. One question per message, max 5, each with 
 - <how it works now> `path/file.ts:42`
 - Root cause: <fixes only>
 
+## Placement
+- `<domain folder>`: <what goes there>, following PROJECT.md `## Structure` / AGENTS.md layout
+
 ## Decisions
 - <decision> — <why>
 
@@ -52,6 +56,7 @@ Ask only what the code can't answer. One question per message, max 5, each with 
 - Slices: vertical, smallest testable behavior, in build order. Prefactor first if it makes the change easy.
 - Every slice has an automated test. No manual-only slices.
 - Paths are fine; the spec is short-lived.
+- Placement is required: new code goes into its domain's slice, never into a catch-all folder. No structure decided yet: propose one in Decisions.
 - `## Design` only for UI work in a project with a design system or mockups; omit otherwise.
 - Max ~50 lines. No user stories, no code.
 
