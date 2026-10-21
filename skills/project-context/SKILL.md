@@ -35,6 +35,8 @@ Write `AGENTS.md` at repo root with only what an agent would get wrong or waste 
 ## Skills
 - Editing .ts/.tsx: use `typescript` if available.
 - Editing .go: use `go` if available.
+- Editing .kt/.kts: use `kotlin` if available; checking the app: `android-device`.
+- Editing .swift: use `swift` if available; checking the app: `ios-simulator`.
 - Writing code: use `lean-code` if available.
 ```
 Keep only the Skills lines for languages present, and the UI line only when the project has a design system.

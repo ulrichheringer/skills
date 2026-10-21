@@ -20,7 +20,7 @@ Check in order:
 2. Spec: missing or extra behavior.
 3. Tests: uncovered behavior, tests that can't fail.
 4. Simplicity: code that can be deleted or shortened, one-caller abstractions.
-5. Rules: `lean-code`, `typescript`, `go`.
+5. Rules: `lean-code` and the language skills (`typescript`, `go`, `kotlin`, `swift`).
 
 Skip nits a linter catches. Don't re-review code unchanged since an earlier review.
 

@@ -1,6 +1,6 @@
 # skills
 
-Lean, TDD-first development workflow skills for Claude Code. TypeScript first, Go second.
+Lean, TDD-first development workflow skills for Claude Code and oh my pi. TypeScript, Go, Kotlin/Android, Swift/iOS.
 
 ## Workflow
 
@@ -22,7 +22,7 @@ Specs live in GitHub issues (fallback `.git/specs/`). Progress lives in git: one
 | Skill | Trigger |
 |-------|---------|
 | kickoff, spec, tdd, debug, self-review, review-pr, ship, pr-loop, retro, autopilot | user |
-| project-context, lean-code, typescript, go | user or model |
+| project-context, lean-code, typescript, go, kotlin, swift, android-device, ios-simulator | user or model |
 | terse | every session (SessionStart) + one-line reminder per prompt |
 | `slice-reviewer` agent (Haiku) | launched by `tdd` |
 | `autopilot-planner` (Opus), `autopilot-builder` (Sonnet) agents | launched by `autopilot` |

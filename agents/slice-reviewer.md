@@ -15,6 +15,8 @@ You get a spec reference and a base ref.
    - No unused code, one-caller abstraction, needless dependency, or dead branch.
    - TypeScript: no `any`, no unvalidated `as`, no `console.log`.
    - Go: no ignored errors, no `panic` for runtime failures.
+   - Kotlin: no `!!`, no `GlobalScope`, no swallowed `CancellationException`, no logic in composables.
+   - Swift: no force-unwrap or `try!`, no `DispatchQueue` in new code, UI state on `@MainActor`.
    - Structure: code lives in the spec's Placement / its domain slice; no new files in catch-all folders; no SQL or business rules in HTTP handlers or UI routes.
    - Boundaries: input validation, failure handling, error feedback, network or data exposure.
    - UI: uses the design system's tokens and components from the spec's Design section or AGENTS.md; no ad-hoc colors, spacing, or fonts.

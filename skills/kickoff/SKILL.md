@@ -52,7 +52,7 @@ Each roadmap item fits one spec (about 3–8 slices); split anything bigger.
 Show it. Iterate until approved. On approval, commit it right away: `git init -b master` if there is no repo, then commit only `PROJECT.md` as `docs: project plan`.
 
 ## 4. Scaffold (after approval)
-- Invoke the `lean-code` skill and the language skill (`typescript`, `go`) first.
+- Invoke the `lean-code` skill and the language skill (`typescript`, `go`, `kotlin`, `swift`) first.
 - Minimal structure, test runner, lint, typecheck, CI running all three.
 - One passing smoke test.
 - Run the `project-context` skill to write `AGENTS.md`.

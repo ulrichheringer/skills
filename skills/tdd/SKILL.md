@@ -15,7 +15,7 @@ argument-hint: "#issue | .git/specs/<file> | <task>"
 - Base: `master` if it exists, else `main`. Neither exists or no commits: stop and ask the user to commit the base first.
 - Resume: `git log --oneline <base>..HEAD` and `git status --short`. A slice with a commit is done; uncommitted changes belong to the next open slice.
 - Branch: already on this spec's branch → resume. Otherwise start fresh from base: dirty tree → stop and ask; clean → `git switch <base> && git pull --ff-only && git switch -c <feat|fix>/<slug>` (skip the pull without a remote). Never stack on another feature branch unless the spec says so.
-- Invoke the `lean-code` skill and the language skill (`typescript`, `go`) before writing code.
+- Invoke the `lean-code` skill and the language skill (`typescript`, `go`, `kotlin`, `swift`) before writing code.
 - Read only files named in Current state and those the next test touches.
 
 ## Cycle, per slice
@@ -35,7 +35,7 @@ Track progress in context. Don't edit the spec per slice.
 ## Finish
 1. Run the spec's Verify `all`. Show the summary lines as proof. Not green means not done.
 2. Launch the `slice-reviewer` subagent with only: the spec reference and base ref `<base>`. Run its checklist yourself only if the harness has no subagent tool at all.
-3. Fix valid findings through the cycle. Dismiss the rest with a one-line reason. Never dismiss a finding that cites a `lean-code`, `typescript`, or `go` rule.
+3. Fix valid findings through the cycle. Dismiss the rest with a one-line reason. Never dismiss a finding that cites a `lean-code` or language-skill rule.
 4. Report: slices done, proof lines, reviewer result.
 
 Next: the `self-review` skill in a fresh session, or `ship`.
