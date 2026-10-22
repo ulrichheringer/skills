@@ -3,6 +3,7 @@ name: spec
 description: Turn a feature, change, or non-trivial bug into a short spec stored as a GitHub issue, with slices the tdd skill executes. Use for /spec.
 disable-model-invocation: true
 model: opus
+effort: low
 metadata:
   tier: think
 argument-hint: "<task> | #issue"
@@ -23,7 +24,7 @@ Explore only the affected area. When it spans many files, delegate to a read-onl
 - Find the exact single-test, full-suite, typecheck, and lint commands.
 
 ## 2. Clarify
-Ask only what the code can't answer. One question per message, max 5, each with your recommended answer. Decide minor calls yourself and list them under Decisions.
+Ask only what the code can't answer, max 5, each with your recommended answer. Use the AskUserQuestion tool when the harness has one: it keeps the whole run in one turn, on this skill's model. Otherwise one question per message. Decide minor calls yourself and list them under Decisions.
 
 ## 3. Write
 ```markdown

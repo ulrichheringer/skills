@@ -3,6 +3,7 @@ name: review-pr
 description: Review someone else's GitHub PR and post findings as one review. Use for /review-pr <number>.
 disable-model-invocation: true
 model: opus
+effort: low
 metadata:
   tier: think
 argument-hint: "<pr number | url>"

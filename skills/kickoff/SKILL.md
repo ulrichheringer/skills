@@ -3,6 +3,7 @@ name: kickoff
 description: Plan a new project from zero before any code - problem, scope, architecture, risks, roadmap - then scaffold it. Use for /kickoff.
 disable-model-invocation: true
 model: opus
+effort: low
 metadata:
   tier: think
 argument-hint: "<project idea>"
@@ -16,7 +17,7 @@ Deep planning for a new project. The one place worth spending tokens: mistakes h
 Read every file, folder, or URL the user passes (designs, specs, prototypes, notes) before asking anything. Never ask what they already answer; list what you took from them.
 
 ## 1. Interview
-One question per message, plain words, with your recommended answer. Stop when every section of `PROJECT.md` can be written.
+Plain words, each question with your recommended answer. Use the AskUserQuestion tool when the harness has one (up to 4 related questions per call): it keeps the whole run in one turn, on this skill's model. Otherwise one question per message. Stop when every section of `PROJECT.md` can be written.
 - Problem: who has it, how it's solved today, what success looks like.
 - Users and the core flow they repeat.
 - MVP: the smallest version that solves the problem. Everything else goes to Out of scope.

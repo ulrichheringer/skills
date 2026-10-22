@@ -3,6 +3,7 @@ name: retro
 description: Turn a recurring agent mistake into a durable fix in tooling, AGENTS.md, or a skill. Use for /retro.
 disable-model-invocation: true
 model: opus
+effort: low
 metadata:
   tier: think
 argument-hint: "<what went wrong>"

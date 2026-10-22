@@ -8,6 +8,7 @@ Lean, TDD-first development workflow skills for Claude Code and oh my pi. TypeSc
 |------|------|
 | New project | `/kickoff` → `/spec` per roadmap item, or `/autopilot` |
 | Roadmap already decided | `/autopilot`: spec → tdd → ship → merge for every open item; stops on blockers |
+| New Android app | `/app`: interview → one milestone plan → unattended TDD per milestone → local merge; rerun to resume |
 | Trivial | ask directly → `/ship` |
 | Bug, clear cause | `/debug` → `/ship` → `/pr-loop` |
 | Feature or unclear bug | `/spec` → `/clear` → `/tdd #n` → `/self-review` (fresh session) → `/ship` → `/pr-loop` |
@@ -21,11 +22,12 @@ Specs live in GitHub issues (fallback `.git/specs/`). Progress lives in git: one
 
 | Skill | Trigger |
 |-------|---------|
-| kickoff, spec, tdd, debug, self-review, review-pr, ship, pr-loop, retro, autopilot | user |
+| kickoff, spec, tdd, debug, self-review, review-pr, ship, pr-loop, retro, autopilot, app | user |
+| kickoff-hard, spec-hard, self-review-hard, review-pr-hard, app-hard | user, same skill at medium effort |
 | project-context, lean-code, typescript, go, kotlin, swift, android-device, ios-simulator | user or model |
 | terse | every session (SessionStart) + one-line reminder per prompt |
 | `slice-reviewer` agent (Haiku) | launched by `tdd` |
-| `autopilot-planner` (Opus), `autopilot-builder` (Sonnet) agents | launched by `autopilot` |
+| `autopilot-planner` (Opus), `autopilot-builder` (Sonnet) agents | launched by `autopilot` and `app` |
 
 Invoke by bare name (`/tdd`); `/skills:tdd` also works.
 
@@ -56,13 +58,15 @@ Both harnesses block file edits through bash (python `open().write`, `cat`/`tee`
 
 ## Model tiers
 
-Skills declare `metadata.tier` and a Claude Code `model`. Claude Code applies a skill's model only to the turn that invokes it; your replies go back to the session model, so keep the session on Opus (`/model opus`) for multi-turn interviews in `kickoff` and `spec`.
+Skills declare `metadata.tier`, a Claude Code `model`, and `effort`. Claude Code applies both only to the turn that invokes the skill, so interviews use the AskUserQuestion tool to stay in that turn.
 
 | Tier | Skills | Claude Code | oh my pi role |
 |------|--------|-------------|---------------|
-| think | kickoff, spec, self-review, review-pr, retro | `opus` for the turn | `@slow` |
+| think | kickoff, spec, self-review, review-pr, retro, app | `opus`, effort `low` (`-hard`: `medium`) | `@slow` |
 | build | tdd, debug, ship, pr-loop | `sonnet` for the turn | `@default` |
 | light | slice-reviewer | `haiku` | `@smol` |
+
+`-hard` skills are generated: after editing a base skill, run `node scripts/hard.mjs`.
 
 ## Credits
 
